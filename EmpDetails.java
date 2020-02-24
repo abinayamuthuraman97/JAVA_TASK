@@ -79,10 +79,24 @@ public class EmpDetails {
 							break;
 							
 							case 3:
-			                System.out.println("Enter Id");
-							
+			                System.out.println("Get employee Id");
 			                System.out.println("");
 			                break;
+			                
+							case 4:
+				                System.out.println("Enter Id you want to delete");
+				                System.out.println("");
+				                break;
+				                
+							case 5:
+				                System.out.println("Enter Id you want to update");
+				                System.out.println("");
+				                break;
+				                
+							case 6:
+				                System.out.println("Exit");
+				                System.out.println("");
+				                break;
 							
 					}
 		}
