@@ -2,9 +2,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.util.List;
 import java.util.Scanner;
-import java.sql.*;
 public class EmpDetails {
 public static void main(String args[]){
 String Username,Password;
@@ -53,61 +51,61 @@ break;
 case 2:
 System.out.print("Show all the employee details:");
 System.out.println(" ");
-try{
-Connection con=DriverManager.getConnection(url,username,password);
-Statement st=con.createStatement();
-String query="select * from emptable";
-ResultSet rs=st.executeQuery(query);
-while(rs.next())
-{
-System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3)+" "+rs.getInt(4));
-}
-}
-catch (Exception e) {
-e.printStackTrace();
-System.out.println(e);
-}	
+	try{
+	Connection con=DriverManager.getConnection(url,username,password);
+	Statement st=con.createStatement();
+	String query="select * from emptable";
+	ResultSet rs=st.executeQuery(query);
+	while(rs.next())
+	{
+	System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3)+" "+rs.getInt(4));
+	}
+	}
+	catch (Exception e) {
+	e.printStackTrace();
+	System.out.println(e);
+	}	
 System.out.print("viewed Successfully");
 break;
 
 case 3:
 System.out.println("Get employee Id");
-try{
-Connection conn=DriverManager.getConnection(url,username,password);
-Statement st=conn.createStatement();
-int empid = sc.nextInt(); 
-String query="select * from emptable where empid="+empid;
-ResultSet rs=st.executeQuery(query);
-while(rs.next())
-{
-System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3)+" "+rs.getInt(4));
-}
-}
-catch (Exception e) {
-e.printStackTrace();
-System.out.println(e);
-}
+	try{
+	Connection conn=DriverManager.getConnection(url,username,password);
+	Statement st=conn.createStatement();
+	int empid = sc.nextInt(); 
+	String query="select * from emptable where empid="+empid;
+	ResultSet rs=st.executeQuery(query);
+	while(rs.next())
+	{
+	System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3)+" "+rs.getInt(4));
+	}
+	}
+	catch (Exception e) {
+	e.printStackTrace();
+	System.out.println(e);
+	}
 System.out.println("");
 break;
 
 case 4:
 System.out.println("Enter Id you want to delete");
-try{
-Connection conn=DriverManager.getConnection(url,username,password);
-Statement st=conn.createStatement();
-int empid = sc.nextInt(); 
-String Update="Delete from emptable where empid =" +empid;
-int i2=st.executeUpdate(Update);
-if(i2>0){
-System.out.println("Deleted successfull"); 
-}else {
-System.out.println("Deleted Unsuccessfull"); 
-}
-}
-catch (Exception e) {
-e.printStackTrace();
-System.out.println(e);
-}
+	try{
+	Connection conn=DriverManager.getConnection(url,username,password);
+	Statement st=conn.createStatement();
+	int empid = sc.nextInt(); 
+	String Update="Delete from emptable where empid =" +empid;
+	int i2=st.executeUpdate(Update);
+	if(i2>0){
+	System.out.println("Deleted successfull"); 
+	}else {
+	System.out.println("Deleted Unsuccessfull"); 
+	}
+	}
+	catch (Exception e) {
+	e.printStackTrace();
+	System.out.println(e);
+	}
 System.out.println("");
 break;
 
@@ -123,30 +121,30 @@ System.out.println(" ");
 System.out.println("Enter the coloumn name you want to update");
 int i4 = sc.nextInt();
 System.out.println("Enter new value");
-try{
-Connection conn=DriverManager.getConnection(url,username,password);
-Statement st=conn.createStatement();
-
-int empid = sc.nextInt();
-String empname = sc.nextLine();
-String email = sc.nextLine();
-int age= sc.nextInt();
-String Update="Update emptable set empname='"+empname+"',email='"+email+"',age='"+age+"' where empid="+empid+"";
-//String Update="update emptable set col = new_value where col = old_value";
-int i2=st.executeUpdate(Update);
-
-if(i2>0) {
-System.out.println("Update successfull"); 
-}else {
-System.out.println("Update Unsuccessfull"); 
-}
-}
-catch (Exception e) {
-e.printStackTrace();
-System.out.println(e);
-}
-System.out.println("");
-break;
+	try{
+	Connection conn=DriverManager.getConnection(url,username,password);
+	Statement st=conn.createStatement();
+	
+	int empid = sc.nextInt();
+	String empname = sc.nextLine();
+	String email = sc.nextLine();
+	int age= sc.nextInt();
+	String Update="Update emptable set Empname='"+empname+"',Email='"+email+"',Age='"+age+"' where Empid="+empid+"";
+	//String Update="update emptable set col = new_value where col = old_value";
+	int i2=st.executeUpdate(Update);
+	
+	if(i2>0) {
+	System.out.println("Update successfull"); 
+	}else {
+	System.out.println("Update Unsuccessfull"); 
+	}
+	}
+	catch (Exception e) {
+	e.printStackTrace();
+	System.out.println(e);
+	}
+	System.out.println("");
+	break;
 
 case 6:
 System.out.println("Logout");
